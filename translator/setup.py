@@ -278,17 +278,18 @@ def download_argos_packs(models_dir: Path, packs: Optional[list[tuple[str, str]]
 
             package = available_map[pack_key]
 
-            # Check if already installed
-            installed = argostranslate.translate.get_installed_languages()
-            installed_pairs = set()
-            for lang in installed:
-                for translation in lang.translations:
-                    installed_pairs.add((lang.code, translation.to_lang.code))
-
-            if pack_key in installed_pairs:
-                print(f"  Already installed: {from_code} -> {to_code}")
-                downloaded += 1
-                continue
+            # Check if already installed by trying to get the translation
+            try:
+                installed_languages = argostranslate.translate.get_installed_languages()
+                from_lang = next((lang for lang in installed_languages if lang.code == from_code), None)
+                to_lang = next((lang for lang in installed_languages if lang.code == to_code), None)
+                
+                if from_lang and to_lang and from_lang.get_translation(to_lang):
+                    print(f"  Already installed: {from_code} -> {to_code}")
+                    downloaded += 1
+                    continue
+            except Exception:
+                pass  # Not installed, proceed with download
 
             try:
                 print(f"  Downloading: {from_code} -> {to_code}...")
