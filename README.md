@@ -4,7 +4,7 @@
 
 **Version 1.0** | December 2025
 
-Github: [@profdilley](https://github.com/profdilley) | *Created by Prof LC Dilley, PhD with assistance from Claude Opus 4.5 [v. Desktop, Thinking Mode) and Claude Code, & Perplexity — 2025-12-02* 
+Github: [@profdilley](https://github.com/profdilley) | *Created by Prof LC Dilley, PhD with assistance from Claude Opus 4.5 [v. Desktop, Thinking Mode] and Claude Code, & Perplexity — 2025-12-02* 
 
 ---
 
