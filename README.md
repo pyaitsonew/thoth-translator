@@ -1,4 +1,4 @@
-# ✨✨✨✨ 🔧 THOTH Language Translator  ✨✨✨✨
+# ✨✨ 🔧 THOTH Language Translator  ✨
 
 ### Hybrid Written Language Translator for Offline Text Handling (Language A => English)
 
@@ -8,7 +8,7 @@ Github: [@profdilley](https://github.com/profdilley) | *Created by Prof LC Dille
 
 ---
 
-## ✨✨ About 🔧 THOTH Language Translator ✨✨
+## ✨ About 🔧 THOTH Language Translator 
 
 THOTH is a powerful, privacy-first translation tool designed for professionals who need to translate CSV data containing multiple languages—completely offline, with no data ever leaving your machine.
 
@@ -16,7 +16,7 @@ Named in honour of the Egyptian god of writing, language, and knowledge, THOTH b
 
 ---
 
-## ✨✨ Key Features ✨✨
+## ✨ Key Features 
 
 | Feature | Description |
 |---------|-------------|
@@ -29,17 +29,17 @@ Named in honour of the Egyptian god of writing, language, and knowledge, THOTH b
 
 ---
 
-## ✨✨ 🔧 Dual-Engine Architecture ✨✨
+## ✨ 🔧 Dual-Engine Architecture 
 
 THOTH provides two translation engines, giving you flexibility and redundancy:
 
-### ✨ Engine #1: NLLB-200 (Default) ✨
+### ✨ Engine #1: NLLB-200 (Default) 
 - **Model**: Meta's No Language Left Behind (NLLB-200-distilled-600M)
 - **Coverage**: 200 languages
 - **Strengths**: State-of-the-art neural translation, excellent for low-resource languages (Baltic, Balkan), superior handling of Cyrillic scripts
 - **Size**: ~2.5 GB
 
-### ✨ Engine #2: Argos Translate (Alternative) ✨
+### ✨ Engine #2: Argos Translate (Alternative) 
 - **Model**: Open-source neural machine translation
 - **Coverage**: 38 language pairs to English
 - **Strengths**: Lightweight, fast inference, strong Western European performance
@@ -53,7 +53,7 @@ python thoth.py input.csv --engine argos   # Alternative
 
 ---
 
-## ✨✨ 🌍 Supported Languages ✨✨
+## ✨ 🌍 Supported Languages 
 
 ### Slavic Languages
 Russian, Ukrainian, Belarusian, Polish, Czech, Slovak, Bulgarian, Serbian, Croatian, Bosnian, Slovenian, Macedonian
@@ -128,7 +128,7 @@ python thoth.py your_file.csv --columns "column1,column2,column3"
 
 ---
 
-## ✨✨ 📖 Usage Examples ✨✨
+## ✨ 📖 Usage Examples 
 
 ### Basic Translation (Auto-detect all text columns)
 ```bash
@@ -157,7 +157,7 @@ python thoth.py data.csv --output translated_data.csv
 
 ---
 
-## ✨✨ 🎯 Smart Features ✨✨
+## ✨ 🎯 Smart Features 
 
 ### Per-Cell Language Detection
 
@@ -195,7 +195,7 @@ id | description | notes | country | description_en | notes_en
 
 ---
 
-## ✨✨ 📁 Supported File Formats ✨✨
+## ✨ 📁 Supported File Formats 
 
 | Format | Extension | Notes |
 |--------|-----------|-------|
@@ -205,7 +205,7 @@ id | description | notes | country | description_en | notes_en
 
 ---
 
-## ✨✨ ⚙️ Configuration ✨✨
+## ✨ ⚙️ Configuration 
 
 For advanced users, THOTH supports YAML configuration:
 
@@ -229,7 +229,7 @@ column_defaults:
 
 ---
 
-## ✨✨ 🧪 Verify Installation ✨✨
+## ✨ 🧪 Verify Installation 
 
 Run the test suite to confirm everything is working:
 
@@ -241,7 +241,7 @@ Expected output: `21 passed`
 
 ---
 
-## ✨✨ 🔒 Privacy & Security ✨✨
+## ✨ 🔒 Privacy & Security 
 
 - **Zero network transmission**: After model download, THOTH never connects to the internet
 - **No telemetry**: No usage data, analytics, or logging to external services
@@ -250,7 +250,7 @@ Expected output: `21 passed`
 
 ---
 
-## ✨✨ 💻 System Requirements ✨✨
+## ✨ 💻 System Requirements 
 
 | Requirement | Minimum | Recommended |
 |-------------|---------|-------------|
@@ -261,7 +261,7 @@ Expected output: `21 passed`
 
 ---
 
-## ✨✨ 🆘 Troubleshooting ✨✨
+## ✨ 🆘 Troubleshooting 
 
 ### "No module named '_tkinter'" (GUI mode)
 The GUI requires tkinter. Use CLI mode instead:
@@ -290,7 +290,7 @@ performance:
 
 ---
 
-## ✨✨ 📊 Performance Benchmarks ✨✨
+## ✨ 📊 Performance Benchmarks 
 
 *Tested on Apple M3, 16 GB RAM*
 
@@ -302,15 +302,15 @@ performance:
 
 ---
 
-## ✨✨ 📝 License ✨✨
+## ✨ 📝 License 
 
 Open source for private use.
 
 ---
 
-## ✨✨ 🙏 Acknowledgments ✨✨
+## ✨ 🙏 Acknowledgments 
 
-✨✨ 🔧 **THOTH Language Translator** ✨✨ is built on the shoulders of giants:
+✨✨ 🔧 **THOTH Language Translator** ✨ is built on the shoulders of giants:
 
 - **Meta AI** — NLLB-200 translation model
 - **Argos Open Tech** — Argos Translate
@@ -319,7 +319,7 @@ Open source for private use.
 - **Perplexity.AI** — Tech SOTA Consulting
 - **Prof George Lakoff** — Language Cognitive Neuroscientist & Influencer on [@profdilley](https://github.com/profdilley)
 - **Prof Claude Shannon** — Father of Information Theory & Influencer on [@profdilley](https://github.com/profdilley)
-- **Claude by Anthropic** — AI Collaborator with [@profdilley](https://github.com/profdilley) on ✨✨ 🔧 **THOTH Language Translator** ✨✨
+- **Claude by Anthropic** — AI Collaborator with [@profdilley](https://github.com/profdilley) on ✨✨ 🔧 **THOTH Language Translator** ✨
 
 ---
 
@@ -327,4 +327,4 @@ Open source for private use.
 
 *Contact* Author ****Prof LC Dilley, PhD**** *on Github*: [@profdilley](https://github.com/profdilley) 
 
-✨✨✨ 🔧 ****THOTH Language Translator****✨✨✨ | ✨"*Your words, your machine, your control*."✨
+✨✨ 🔧 ****THOTH Language Translator****✨ | ✨"*Your words, your machine, your control*."✨
