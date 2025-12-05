@@ -137,6 +137,7 @@ class CSVProcessor:
         self._columns: list[ColumnInfo] = []
         self._language_mapper = LanguageMapper()
         self._translated_columns: dict[str, list[str]] = {}
+        self._target_language: str = "eng_Latn"  # Track for column naming
 
     @property
     def is_loaded(self) -> bool:
@@ -413,6 +414,9 @@ class CSVProcessor:
         if progress:
             progress.start(total_cells, "Starting translation...")
 
+        # Store target language for save() column naming
+        self._target_language = target_language
+
         # Convert target language to engine format
         if engine.get_engine_id() == "argos":
             # Argos uses ISO 639-1 codes
@@ -569,7 +573,13 @@ class CSVProcessor:
             
             # If this column was translated, add translation immediately after
             if col_name in self._translated_columns:
-                new_col_name = f"{col_name}_en"
+                # Get language suffix from target language code
+                lang_suffix = self._target_language[:3].lower()  # e.g., "eng" -> "eng", "fra" -> "fra"
+                if self._target_language == "eng_Latn":
+                    lang_suffix = "en"  # Keep "en" for English for backwards compatibility
+                elif "_" in self._target_language:
+                    lang_suffix = self._target_language.split("_")[0][:2]  # e.g., "fra_Latn" -> "fr"
+                new_col_name = f"{col_name}_{lang_suffix}"
                 output_df[new_col_name] = self._translated_columns[col_name]
 
         # Save based on extension

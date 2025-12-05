@@ -29,6 +29,19 @@ Named in honour of the Egyptian god of writing, language, and knowledge, THOTH b
 
 ---
 
+## 🖥️ Two Ways to Use THOTH
+
+Use THOTH with a Graphical User Interface (GUI) or Command Line Interface (CLI).
+
+| Mode | Command | Best For |
+|------|---------|----------|
+| **GUI** | `python thoth.py --gui` | Visual column selection, previewing translations |
+| **CLI** | `python thoth.py input.csv` | Scripting, automation, batch processing |
+
+Both modes offer the same translation quality — choose based on your workflow.
+
+---
+
 ## ✨ 🔧 Dual-Engine Architecture 
 
 THOTH provides two translation engines, giving you flexibility and redundancy:
@@ -310,7 +323,14 @@ Expected output: `21 passed`
 ## ✨ 🆘 Troubleshooting 
 
 ### "No module named '_tkinter'" (GUI mode)
-The GUI requires tkinter. Use CLI mode instead:
+The GUI requires tkinter.
+
+**Option #1:** Install it:
+- **macOS**: `brew install python-tk@3.13` (match your Python version)
+- **Ubuntu/Debian**: `sudo apt-get install python3-tk`
+- **Windows**: Reinstall Python and check "tcl/tk" option
+
+**Option #2:** Use CLI mode instead:
 ```bash
 python thoth.py input.csv --columns "col1,col2"
 ```

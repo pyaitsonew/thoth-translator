@@ -143,6 +143,13 @@ For more information, see README.md
         help="Force source language for all columns (e.g., rus_Cyrl)",
     )
 
+    parser.add_argument(
+        "-t", "--target-lang",
+        dest="target_lang",
+        default="eng_Latn",
+        help="Target language for translation (default: eng_Latn for English)",
+    )
+    
     # Engine selection
     parser.add_argument(
         "-e", "--engine",
@@ -193,7 +200,7 @@ For more information, see README.md
     parser.add_argument(
         "--version",
         action="version",
-        version="THOTH 1.0.0",
+        version="THOTH 1.1.0",
     )
 
     args = parser.parse_args()
@@ -259,6 +266,8 @@ For more information, see README.md
             cli_args.extend(["--columns", args.columns])
         if args.force_lang:
             cli_args.extend(["--force-lang", args.force_lang])
+        if args.target_lang:
+            cli_args.extend(["--target-lang", args.target_lang])
         if args.engine:
             cli_args.extend(["--engine", args.engine])
         if args.config:

@@ -125,6 +125,13 @@ class CLI:
             help="Force source language for all columns (e.g., rus_Cyrl)",
         )
 
+        parser.add_argument(
+            "-t", "--target-lang",
+            dest="target_lang",
+            default="eng_Latn",
+            help="Target language for translation (default: eng_Latn for English)",
+        )
+        
         # Engine selection
         parser.add_argument(
             "-e", "--engine",
@@ -277,7 +284,7 @@ class CLI:
             self._progress = ProgressTracker()
             self._progress.on_progress = self._print_progress
 
-            result = processor.translate(engine, self._progress)
+            result = processor.translate(engine, self._progress, target_language=args.target_lang)
             print()
 
             if self._cancelled:
