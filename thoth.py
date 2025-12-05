@@ -176,6 +176,26 @@ For more information, see README.md
         help="Verbose output (debug logging)",
     )
 
+    # Batch processing
+    parser.add_argument(
+        "--batch",
+        action="store_true",
+        help="Process all CSV/Excel files in current directory",
+    )
+
+    parser.add_argument(
+        "--batch-dir",
+        dest="batch_dir",
+        help="Process all CSV/Excel files in specified directory",
+    )
+
+    parser.add_argument(
+        "--batch-recursive",
+        action="store_true",
+        dest="batch_recursive",
+        help="Process all CSV/Excel files in current directory and all subdirectories",
+    )
+
     # Analysis only
     parser.add_argument(
         "--analyze",
@@ -200,7 +220,7 @@ For more information, see README.md
     parser.add_argument(
         "--version",
         action="version",
-        version="THOTH 1.1.0",
+        version="THOTH 1.2.0",
     )
 
     args = parser.parse_args()
@@ -232,6 +252,86 @@ For more information, see README.md
         from translator.cli import CLI
         cli = CLI()
         return cli._run_tests()
+
+    # Batch processing mode
+    if args.batch or args.batch_dir or args.batch_recursive:
+        from translator.cli import CLI
+        from pathlib import Path
+        import glob
+
+        # Determine search directory
+        if args.batch_dir:
+            search_dir = Path(args.batch_dir)
+            if not search_dir.exists():
+                print(f"Error: Directory not found: {args.batch_dir}")
+                return 1
+        else:
+            search_dir = Path.cwd()
+
+        # Find files
+        if args.batch_recursive:
+            csv_files = list(search_dir.rglob("*.csv")) + list(search_dir.rglob("*.xlsx")) + list(search_dir.rglob("*.xls"))
+        else:
+            csv_files = list(search_dir.glob("*.csv")) + list(search_dir.glob("*.xlsx")) + list(search_dir.glob("*.xls"))
+
+        # Filter out already-translated files
+        csv_files = [f for f in csv_files if "_translated" not in f.stem]
+
+        if not csv_files:
+            print(f"No CSV/Excel files found in {search_dir}")
+            return 0
+
+        print(f"\n{'='*60}")
+        print(f"  THOTH Batch Processing")
+        print(f"{'='*60}")
+        print(f"  Found {len(csv_files)} file(s) to process")
+        print(f"{'='*60}\n")
+
+        # Process each file
+        cli = CLI()
+        success_count = 0
+        fail_count = 0
+
+        for i, file_path in enumerate(csv_files, 1):
+            print(f"\n[{i}/{len(csv_files)}] Processing: {file_path.name}")
+            print("-" * 40)
+
+            # Build argument list
+            cli_args = [str(file_path)]
+
+            if args.columns:
+                cli_args.extend(["--columns", args.columns])
+            if args.force_lang:
+                cli_args.extend(["--force-lang", args.force_lang])
+            if args.target_lang:
+                cli_args.extend(["--target-lang", args.target_lang])
+            if args.engine:
+                cli_args.extend(["--engine", args.engine])
+            if args.config:
+                cli_args.extend(["--config", args.config])
+            if args.quiet:
+                cli_args.append("--quiet")
+
+            try:
+                result = cli.run(cli_args)
+                if result == 0:
+                    success_count += 1
+                else:
+                    fail_count += 1
+            except Exception as e:
+                print(f"  Error: {e}")
+                fail_count += 1
+
+        # Summary
+        print(f"\n{'='*60}")
+        print(f"  Batch Processing Complete")
+        print(f"{'='*60}")
+        print(f"  Successful: {success_count}")
+        print(f"  Failed: {fail_count}")
+        print(f"  Total: {len(csv_files)}")
+        print(f"{'='*60}\n")
+
+        return 0 if fail_count == 0 else 1
 
     # Handle --gui or no arguments
     if args.gui or (not args.input_file and not args.test):

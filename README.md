@@ -216,6 +216,37 @@ python thoth.py data.csv --output translated_data.csv
 
 ---
 
+## 📦 Batch Processing
+
+Translate multiple files at once:
+
+### All Files in Current Directory
+```bash
+python thoth.py --batch --columns "description,notes"
+```
+
+### All Files in a Specific Directory
+```bash
+python thoth.py --batch-dir /path/to/data --columns "description,notes"
+```
+
+### All Files in Directory and Subdirectories (Recursive)
+```bash
+python thoth.py --batch-recursive --columns "description,notes"
+```
+
+### Batch with Target Language
+```bash
+python thoth.py --batch-dir ./data --columns "description" --target-lang fra_Latn
+```
+
+**Notes:**
+- Supports `.csv`, `.xlsx`, and `.xls` files
+- Files with `_translated` in the name are automatically skipped
+- Each output file is saved alongside its source with `_translated` suffix
+
+---
+
 ## ✨ 🎯 Smart Features 
 
 ### Per-Cell Language Detection
