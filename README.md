@@ -63,12 +63,14 @@ THOTH provides two translation engines, giving you flexibility and redundancy:
 python thoth.py input.csv --engine nllb    # Default
 python thoth.py input.csv --engine argos   # Alternative
 ```
-### When to Use Each Engine
+### When to Use Each Engine (Updated with Benchmark Data)
 
-| Engine | Best For | Avoid For |
-|--------|----------|-----------|
-| **NLLB (default)** | All languages, especially Cyrillic, Baltic, Balkan, Asian | — |
-| **Argos** | Western European (FR, DE, ES, IT, PT) when speed matters | Russian, Ukrainian, Serbian, Bulgarian, Baltic languages |
+| Engine | Best For | Benchmark Result | Speed |
+|--------|----------|------------------|-------|
+| **NLLB (default)** | All languages, especially Ukrainian, Japanese, Korean, Arabic, Spanish, German, and all Baltic/Balkan | chrF 61.15 (mean) | Baseline |
+| **Argos** | Russian, French, Polish, Czech, Greek, Chinese when speed matters | chrF 56.77 (mean) | 14× faster |
+
+**Critical:** Argos does **not** support Lithuanian, Latvian, Estonian, Serbian, Bulgarian, or Norwegian. Use NLLB for these languages.
 
 ---
 
@@ -137,15 +139,7 @@ Albanian, and more...
 
 ---
 
-```
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////                                                                        ////
-////                        ✨✨ ⚡ QUICK START ⚡ ✨✨                        ////
-////                                                                        ////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-```
+## ✨✨✨✨ ⚡ QUICK START ⚡ ✨✨✨✨
 
 ### Step 1: Create Virtual Environment
 ```bash
@@ -396,6 +390,91 @@ performance:
 | 1,000 rows | 2 columns | ~30 sec | ~20 sec |
 | 10,000 rows | 2 columns | ~5 min | ~3 min |
 | 10,000 rows | 10 columns | ~25 min | ~15 min |
+
+---
+
+## ✨ 🔬 Translation Quality Benchmarks (FLORES+ Validation)
+
+THOTH's translation engines were rigorously evaluated against the **FLORES+** benchmark dataset—the gold standard for multilingual translation evaluation used by Meta to benchmark NLLB-200.
+
+### Evaluation Summary
+
+| Metric | NLLB-200 | Argos Translate |
+|--------|----------|-----------------|
+| **Languages Evaluated** | 18 | 12 |
+| **Mean chrF Score** | **61.15** | 56.77 |
+| **Mean BLEU Score** | **34.95** | 28.81 |
+| **Translation Speed** | Baseline | 14× faster |
+
+*chrF (character n-gram F-score) is the primary metric—higher is better. Tested on 200 sentences per language from FLORES+ devtest split.*
+
+### Results by Language Family
+
+#### Slavic Languages
+| Language | NLLB chrF | Argos chrF | Recommended Engine |
+|----------|-----------|------------|-------------------|
+| Russian | 60.3 | **62.5** | Either (Argos slightly better) |
+| Ukrainian | **62.1** | 50.7 | **NLLB** (+11.4) |
+| Polish | 56.6 | 56.0 | Either (similar quality) |
+| Czech | 63.9 | 62.9 | Either (similar quality) |
+| Bulgarian | **66.1** | N/A | **NLLB** (Argos unavailable) |
+| Serbian | **65.6** | N/A | **NLLB** (Argos unavailable) |
+
+#### Baltic Languages
+| Language | NLLB chrF | Argos chrF | Recommended Engine |
+|----------|-----------|------------|-------------------|
+| Lithuanian | **57.6** | N/A | **NLLB** (Argos unavailable) |
+| Latvian | **58.7** | N/A | **NLLB** (Argos unavailable) |
+| Estonian | **61.9** | N/A | **NLLB** (Argos unavailable) |
+
+#### East Asian Languages
+| Language | NLLB chrF | Argos chrF | Recommended Engine |
+|----------|-----------|------------|-------------------|
+| Chinese (Simplified) | 56.1 | 54.6 | Either (similar quality) |
+| Japanese | **53.0** | 46.4 | **NLLB** (+6.6) |
+| Korean | **55.4** | 45.6 | **NLLB** (+9.8) |
+
+#### Western European & Other
+| Language | NLLB chrF | Argos chrF | Recommended Engine |
+|----------|-----------|------------|-------------------|
+| French | 69.4 | 69.2 | Either (similar quality) |
+| German | **67.0** | 64.2 | **NLLB** (+2.8) |
+| Spanish | **59.9** | 53.9 | **NLLB** (+6.0) |
+| Arabic | **63.8** | 57.2 | **NLLB** (+6.6) |
+| Greek | 59.5 | 58.1 | Either (similar quality) |
+| Norwegian | **63.9** | N/A | **NLLB** (Argos unavailable) |
+
+### Key Findings
+
+1. **NLLB is the recommended default engine** — Higher quality across 17 of 18 languages tested
+2. **Argos coverage gaps** — Does not support Baltic (LT, LV, ET), most Balkan (SR, BG), or Norwegian
+3. **Argos wins only for Russian** — Slight advantage (+2.2 chrF)
+4. **Speed vs Quality trade-off** — Argos is 14× faster; acceptable for FR, PL, CZ, EL, ZH when speed matters
+
+### Engine Selection Guide
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    WHICH ENGINE SHOULD I USE?                   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  Is your source language Baltic, Balkan, or Norwegian?          │
+│     YES → Use NLLB (Argos doesn't support these)                │
+│     NO  ↓                                                       │
+│                                                                 │
+│  Is your source language Japanese, Korean, Arabic, or Spanish?  │
+│     YES → Use NLLB (significantly better quality)               │
+│     NO  ↓                                                       │
+│                                                                 │
+│  Is your source language Ukrainian or German?                   │
+│     YES → Use NLLB (better quality)                             │
+│     NO  ↓                                                       │
+│                                                                 │
+│  Is speed critical and source is FR/PL/CZ/EL/ZH/RU?             │
+│     YES → Argos acceptable (14× faster, similar quality)        │
+│     NO  → Use NLLB (default, best overall)                      │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
 
 ---
 

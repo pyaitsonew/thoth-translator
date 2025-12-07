@@ -1,0 +1,37 @@
+Language Code,Language Name,Engine,chrF Score,BLEU Score,Sentences,Time (s),Errors,Status
+rus_Cyrl,Russian,NLLB,60.30,34.12,200,439.5,0,OK
+rus_Cyrl,Russian,Argos,62.47,35.91,200,47.7,0,OK
+ukr_Cyrl,Ukrainian,NLLB,62.11,36.93,200,452.1,0,OK
+ukr_Cyrl,Ukrainian,Argos,50.73,23.42,200,51.4,0,OK
+lit_Latn,Lithuanian,NLLB,57.64,30.50,200,497.5,0,OK
+lit_Latn,Lithuanian,Argos,0.00,0.00,0,0.0,1,NOT_SUPPORTED
+lvs_Latn,Latvian,NLLB,58.71,31.83,200,519.8,0,OK
+lvs_Latn,Latvian,Argos,0.00,0.00,0,0.0,1,NOT_SUPPORTED
+est_Latn,Estonian,NLLB,61.85,35.58,200,493.1,0,OK
+est_Latn,Estonian,Argos,0.00,0.00,0,0.0,1,NOT_SUPPORTED
+srp_Cyrl,Serbian,NLLB,65.65,41.41,200,506.8,0,OK
+srp_Cyrl,Serbian,Argos,0.00,0.00,0,0.0,1,NOT_SUPPORTED
+bul_Cyrl,Bulgarian,NLLB,66.07,40.56,200,525.8,0,OK
+bul_Cyrl,Bulgarian,Argos,0.00,0.00,0,0.0,1,NOT_SUPPORTED
+pol_Latn,Polish,NLLB,56.60,28.68,200,495.3,0,OK
+pol_Latn,Polish,Argos,56.02,26.46,200,58.1,0,OK
+ces_Latn,Czech,NLLB,63.86,38.51,200,498.8,0,OK
+ces_Latn,Czech,Argos,62.85,36.24,200,54.7,0,OK
+ell_Grek,Greek,NLLB,59.54,33.95,200,475.5,0,OK
+ell_Grek,Greek,Argos,58.10,30.75,200,49.6,0,OK
+zho_Hans,Chinese (Simplified),NLLB,56.09,27.63,200,542.0,0,OK
+zho_Hans,Chinese (Simplified),Argos,54.64,24.45,200,51.8,0,OK
+jpn_Jpan,Japanese,NLLB,53.01,23.26,200,526.9,0,OK
+jpn_Jpan,Japanese,Argos,46.43,16.64,200,51.7,0,OK
+kor_Hang,Korean,NLLB,55.37,26.61,200,519.9,0,OK
+kor_Hang,Korean,Argos,45.57,15.12,200,52.2,0,OK
+arb_Arab,Arabic,NLLB,63.82,40.03,200,505.4,0,OK
+arb_Arab,Arabic,Argos,57.24,30.86,200,49.1,0,OK
+fra_Latn,French,NLLB,69.35,46.11,200,500.1,0,OK
+fra_Latn,French,Argos,69.16,45.71,200,50.4,0,OK
+deu_Latn,German,NLLB,67.02,42.78,200,426.3,0,OK
+deu_Latn,German,Argos,64.19,37.30,200,44.1,0,OK
+spa_Latn,Spanish,NLLB,59.86,30.99,200,441.6,0,OK
+spa_Latn,Spanish,Argos,53.89,22.81,200,51.6,0,OK
+nob_Latn,Norwegian Bokmål,NLLB,63.93,39.58,200,417.3,0,OK
+nob_Latn,Norwegian Bokmål,Argos,0.00,0.00,0,0.0,1,NOT_SUPPORTED

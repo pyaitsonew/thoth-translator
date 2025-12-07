@@ -1,0 +1,3 @@
+Engine,Languages Evaluated,Mean chrF,Std chrF,Min chrF,Max chrF,Mean BLEU,Std BLEU,Total Sentences,Total Errors,Total Time (s)
+NLLB,18,61.15,4.47,53.01,69.35,34.95,6.27,3600,0,8784.0
+Argos,12,56.77,7.15,45.57,69.16,28.81,9.03,2400,0,612.5

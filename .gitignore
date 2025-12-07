@@ -18,3 +18,5 @@ models/
 # IDE settings
 .vscode/
 .idea/
+validation/flores_data/
+validation/*.pkl
